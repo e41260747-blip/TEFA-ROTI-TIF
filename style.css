@@ -1,0 +1,436 @@
+/* ==========================================================
+   TEFA ROTI SIP - Stylesheet utama
+   Tema: toko roti hangat (cokelat, krem, oranye)
+   ========================================================== */
+
+:root {
+  --cokelat-tua: #4a2c17;
+  --cokelat: #7b4a26;
+  --karamel: #d9822b;
+  --karamel-gelap: #b8691c;
+  --krem: #fff6e8;
+  --krem-tua: #f6e3c4;
+  --putih: #ffffff;
+  --teks: #3b2a1e;
+  --teks-lembut: #7a6553;
+  --garis: #ecd8b8;
+  --bayangan: 0 4px 14px rgba(74, 44, 23, 0.12);
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+  line-height: 1.65;
+  color: var(--teks);
+  background: var(--krem);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---------- Header ---------- */
+header {
+  background: linear-gradient(135deg, var(--cokelat-tua), var(--cokelat));
+  color: var(--krem);
+  text-align: center;
+  padding: 2rem 1rem 1.6rem;
+  border-bottom: 5px solid var(--karamel);
+}
+header h1 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+header h1::before { content: "🍞 "; }
+header p {
+  margin-top: .3rem;
+  color: var(--krem-tua);
+  font-size: .98rem;
+}
+
+/* ---------- Navigasi ---------- */
+nav {
+  background: var(--putih);
+  box-shadow: var(--bayangan);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .3rem;
+  padding: .6rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+nav a {
+  display: block;
+  padding: .5rem 1rem;
+  border-radius: 999px;
+  color: var(--cokelat);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: .95rem;
+  transition: background .2s, color .2s;
+}
+nav a:hover { background: var(--krem-tua); }
+nav a.aktif {
+  background: var(--karamel);
+  color: var(--putih);
+}
+
+/* ---------- Konten utama ---------- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+main > h2,
+section {
+  background: var(--putih);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.5rem;
+  border-top: 4px solid var(--karamel);
+}
+
+/* Halaman tanpa <section> (produk, pemesanan, profil) */
+main:not(:has(section)) {
+  background: var(--putih);
+  border-radius: var(--radius);
+  box-shadow: var(--bayangan);
+  padding: 1.8rem;
+  border-top: 4px solid var(--karamel);
+}
+main:not(:has(section)) > h2 {
+  box-shadow: none; border: 0; padding: 0; margin-bottom: 1rem; background: none;
+}
+
+h2 {
+  color: var(--cokelat-tua);
+  font-size: 1.4rem;
+  margin-bottom: .8rem;
+}
+main p { margin-bottom: .7rem; }
+main em, main p strong { color: var(--teks-lembut); }
+
+a { color: var(--karamel-gelap); }
+a:hover { color: var(--cokelat-tua); }
+
+/* ---------- Daftar ---------- */
+main ul, main ol { margin: .5rem 0 1rem 1.4rem; }
+main li { margin-bottom: .4rem; }
+
+/* Daftar produk menjadi kartu */
+main > ul {
+  list-style: none;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
+}
+main > ul li {
+  background: var(--krem);
+  border: 2px solid var(--garis);
+  border-radius: var(--radius);
+  padding: 1.4rem 1rem;
+  text-align: center;
+  font-weight: 700;
+  color: var(--cokelat);
+  margin: 0;
+  transition: transform .2s, border-color .2s, box-shadow .2s;
+}
+main > ul li::before {
+  content: "🥐";
+  display: block;
+  font-size: 2.2rem;
+  margin-bottom: .4rem;
+}
+main > ul li:hover {
+  transform: translateY(-4px);
+  border-color: var(--karamel);
+  box-shadow: var(--bayangan);
+}
+
+/* Langkah pemesanan bernomor */
+main > ol {
+  list-style: none;
+  counter-reset: langkah;
+  margin: 1rem 0;
+}
+main > ol li {
+  counter-increment: langkah;
+  background: var(--krem);
+  border-left: 5px solid var(--karamel);
+  border-radius: 10px;
+  padding: .8rem 1rem .8rem 3.4rem;
+  position: relative;
+}
+main > ol li::before {
+  content: counter(langkah);
+  position: absolute;
+  left: .9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--karamel);
+  color: var(--putih);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.8rem;
+}
+
+/* Menu layanan & ringkasan di dashboard */
+section ul { list-style: none; margin-left: 0; }
+section ul li {
+  padding: .6rem .9rem;
+  border-bottom: 1px dashed var(--garis);
+  margin: 0;
+}
+section ul li:last-child { border-bottom: 0; }
+section ul li a { font-weight: 600; text-decoration: none; }
+section ul li a::before { content: "➜ "; }
+
+/* ---------- Formulir login ---------- */
+form { margin-top: 1rem; }
+label {
+  font-weight: 600;
+  color: var(--cokelat);
+  display: inline-block;
+  margin-bottom: .3rem;
+}
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 2px solid var(--garis);
+  border-radius: 10px;
+  background: var(--krem);
+  font-size: 1rem;
+  color: var(--teks);
+  transition: border-color .2s, box-shadow .2s;
+}
+input:focus {
+  outline: none;
+  border-color: var(--karamel);
+  box-shadow: 0 0 0 4px rgba(217, 130, 43, .2);
+  background: var(--putih);
+}
+button {
+  width: 100%;
+  padding: .8rem 1.5rem;
+  border: 0;
+  border-radius: 10px;
+  background: var(--karamel);
+  color: var(--putih);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+button:hover { background: var(--karamel-gelap); }
+button:active { transform: scale(.98); }
+
+/* Halaman login: kartu di tengah */
+body.login main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 460px;
+}
+body.login section { width: 100%; text-align: center; }
+body.login section p { color: var(--teks-lembut); }
+body.login form { text-align: left; }
+body.login label { margin-bottom: .3rem; }
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--cokelat-tua);
+  color: var(--krem-tua);
+  text-align: center;
+  padding: 1.2rem 1rem;
+  font-size: .9rem;
+  border-top: 5px solid var(--karamel);
+}
+footer p { margin: 0; }
+
+/* ---------- Responsif ---------- */
+@media (max-width: 600px) {
+  header h1 { font-size: 1.5rem; letter-spacing: 1px; }
+  nav ul { gap: .2rem; }
+  nav a { padding: .4rem .7rem; font-size: .85rem; }
+  section, main:not(:has(section)) { padding: 1.2rem; }
+}
+
+/* ==========================================================
+   HALAMAN PEMESANAN
+   ========================================================== */
+
+section ol.langkah {
+  list-style: none;
+  counter-reset: langkah;
+  margin: 1rem 0 0;
+}
+section ol.langkah li {
+  counter-increment: langkah;
+  background: var(--krem);
+  border-left: 5px solid var(--karamel);
+  border-radius: 10px;
+  padding: .8rem 1rem .8rem 3.4rem;
+  position: relative;
+  margin-bottom: .6rem;
+}
+section ol.langkah li::before {
+  content: counter(langkah);
+  position: absolute;
+  left: .9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--karamel);
+  color: var(--putih);
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.8rem;
+}
+
+/* Kartu roti */
+.produk-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+}
+.kartu-roti {
+  background: var(--krem);
+  border: 2px solid var(--garis);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 1.1rem;
+  transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.kartu-roti:hover {
+  transform: translateY(-4px);
+  border-color: var(--karamel);
+  box-shadow: var(--bayangan);
+}
+.kartu-roti img { width: 100%; display: block; }
+.kartu-roti h3 { margin: .8rem 0 .1rem; color: var(--cokelat-tua); }
+.kartu-roti .harga {
+  color: var(--karamel-gelap);
+  font-weight: 700;
+  margin-bottom: .7rem;
+}
+.btn-tambah {
+  width: auto;
+  padding: .5rem 1.4rem;
+  border-radius: 999px;
+  font-size: .95rem;
+}
+.catatan { margin-top: 1rem; font-size: .85rem; color: var(--teks-lembut); font-style: italic; }
+
+/* Keranjang */
+.kosong { color: var(--teks-lembut); font-style: italic; }
+.daftar-keranjang { list-style: none; margin: 0 0 1rem; }
+.daftar-keranjang li {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .7rem .2rem;
+  border-bottom: 1px dashed var(--garis);
+}
+.daftar-keranjang .nama { flex: 1; font-weight: 600; }
+.daftar-keranjang .nama small { display: block; font-weight: 400; color: var(--teks-lembut); }
+.daftar-keranjang .qty { display: flex; align-items: center; gap: .5rem; }
+.daftar-keranjang .qty button {
+  width: 2rem; height: 2rem; padding: 0;
+  border-radius: 50%; font-size: 1.1rem; line-height: 1;
+}
+.daftar-keranjang .qty b { min-width: 1.4rem; text-align: center; }
+.daftar-keranjang .sub { min-width: 5.5rem; text-align: right; font-weight: 700; color: var(--cokelat); }
+.total { font-size: 1.2rem; text-align: right; }
+.total strong { color: var(--karamel-gelap); font-size: 1.4rem; }
+.btn-beli { background: #25d366; }
+.btn-beli:hover { background: #1ebe5b; }
+
+/* Chatbox WhatsApp */
+.wa-chat {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 1.2rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: .8rem;
+}
+.wa-tombol {
+  width: 62px; height: 62px; padding: 0;
+  border-radius: 50%;
+  background: #25d366;
+  box-shadow: 0 6px 18px rgba(0,0,0,.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.wa-tombol:hover { background: #1ebe5b; }
+.wa-panel {
+  width: 320px;
+  max-width: calc(100vw - 2.4rem);
+  background: var(--putih);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(0,0,0,.28);
+  overflow: hidden;
+}
+.wa-panel[hidden] { display: none; }
+.wa-kepala {
+  background: #075e54;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+  padding: .8rem 1rem;
+}
+.wa-kepala div { flex: 1; line-height: 1.3; }
+.wa-kepala small { display: block; font-size: .75rem; opacity: .8; }
+.wa-avatar {
+  width: 2.4rem; height: 2.4rem; border-radius: 50%;
+  background: var(--krem); display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+}
+.wa-tutup { width: auto; background: none; color: #fff; font-size: 1.6rem; padding: 0 .3rem; }
+.wa-tutup:hover { background: none; opacity: .7; }
+.wa-isi { background: #ece5dd; padding: 1.2rem 1rem; min-height: 120px; }
+.wa-gelembung {
+  background: #fff;
+  display: inline-block;
+  max-width: 85%;
+  padding: .6rem .9rem;
+  border-radius: 0 12px 12px 12px;
+  box-shadow: 0 1px 2px rgba(0,0,0,.15);
+  font-size: .92rem;
+}
+.wa-form { display: flex; gap: .5rem; padding: .7rem; margin: 0; background: #f0f0f0; }
+.wa-form input { border-radius: 999px; padding: .6rem 1rem; }
+.wa-form button {
+  width: 2.8rem; height: 2.8rem; padding: 0; border-radius: 50%;
+  background: #25d366; flex-shrink: 0;
+}
+.wa-form button:hover { background: #1ebe5b; }
+
+@media (max-width: 600px) {
+  .daftar-keranjang li { flex-wrap: wrap; }
+  .daftar-keranjang .nama { flex-basis: 100%; }
+  .daftar-keranjang .sub { margin-left: auto; }
+}

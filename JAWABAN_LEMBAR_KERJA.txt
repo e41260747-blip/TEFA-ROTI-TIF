@@ -1,0 +1,57 @@
+BKPM MINGGU 11 – PERTEMUAN 1
+Topik: TEFA ROTI SIP
+Acara 1: Pengenalan HTML dan Pembuatan Struktur Dokumen
+Acara 2: Menyusun Konten dan Elemen Semantik Halaman
+
+LEMBAR KERJA 1 – IDENTIFIKASI STRUKTUR HALAMAN
+1. Identitas/header
+   Informasi: Nama TEFA ROTI SIP dan keterangan sistem informasi penjualan serta pemesanan roti.
+   Elemen HTML: <header>, <h1>, <p>.
+2. Judul halaman
+   Informasi: Login Pengguna atau Dashboard TEFA ROTI SIP.
+   Elemen HTML: <title>, <h2>.
+3. Navigasi/menu
+   Informasi: Dashboard, Produk Roti, Pemesanan, Profil, Tentang Kami.
+   Elemen HTML: <nav>, <ul>, <li>, <a>.
+4. Konten utama
+   Informasi: Sambutan, informasi usaha, dan ringkasan sistem.
+   Elemen HTML: <main>, <section>, <h2>, <p>.
+5. Informasi pendukung
+   Informasi: Daftar produk dan langkah pemesanan.
+   Elemen HTML: <ul>, <ol>, <li>.
+6. Footer
+   Informasi: Hak cipta dan nama TEFA ROTI SIP.
+   Elemen HTML: <footer>, <p>.
+
+LEMBAR KERJA 2 – PEMERIKSAAN DOKUMEN HTML
+1. Deklarasi <!DOCTYPE html>: Sudah.
+2. Elemen <html lang="id">: Sudah.
+3. Elemen <head> dan <title>: Sudah.
+4. Meta charset UTF-8: Sudah.
+5. Meta viewport: Sudah.
+6. Elemen <body> berisi konten: Sudah.
+7. File dapat dibuka di browser: Dapat diperiksa dengan membuka index.html pada browser.
+
+LEMBAR KERJA 3 – PEMETAAN KOMPONEN HTML
+1. Logo/identitas: Nama TEFA ROTI SIP – <header> dan <h1> – untuk menunjukkan identitas website.
+2. Judul halaman: Login Pengguna – <title> dan <h2> – untuk menjelaskan halaman yang dibuka.
+3. Menu navigasi: Dashboard, Produk Roti, Pemesanan, Profil, Tentang Kami – <nav> dan <a> – untuk berpindah halaman.
+4. Petunjuk Login: Teks petunjuk masuk – <p> – untuk memberi arahan kepada pengguna.
+5. Input nama pengguna/kata sandi: <label> dan <input> – untuk menyediakan tempat memasukkan data.
+6. Tombol Masuk: <button> – sebagai tombol tindakan pada tampilan.
+7. Ringkasan Dashboard: Informasi nama usaha, bidang usaha, dan layanan – <section>, <ul>, dan <li> – agar informasi tersusun.
+
+LEMBAR KERJA 4 – PENGUJIAN HALAMAN LOGIN DAN DASHBOARD
+1. Halaman Login dapat dibuka: ✓ – index.html ditampilkan di browser.
+2. Label dan input Login tampil: ✓ – nama pengguna dan kata sandi tersedia.
+3. Tombol Masuk tampil sebagai elemen tombol: ✓ – tombol Masuk tersedia, belum berfungsi untuk autentikasi.
+4. Dashboard dapat dibuka: ✓ – dashboard.html dapat dibuka.
+5. Menu navigasi tampil: ✓ – menu tersedia pada dashboard.
+6. Tautan menuju file halaman lain sesuai: ✓ – tautan diarahkan ke nama file yang tersedia.
+7. Tidak ada konten contoh yang memakai data pribadi nyata: ✓ – menggunakan data pengguna contoh.
+
+HASIL DAN PEMBAHASAN
+Pada pertemuan 1, telah dibuat struktur awal website TEFA ROTI SIP menggunakan HTML5. Website memiliki halaman Login, Dashboard, Produk Roti, Pemesanan, Profil, dan Tentang Kami. Elemen HTML seperti header, nav, main, section, form, label, input, button, list, dan footer digunakan sesuai fungsinya. Seluruh halaman masih berupa struktur HTML. Tombol Login belum menjalankan autentikasi dan halaman pemesanan belum memproses transaksi.
+
+KESIMPULAN
+HTML digunakan untuk membentuk struktur dan konten website TEFA ROTI SIP. Elemen teks digunakan untuk menampilkan judul dan informasi, daftar untuk menyusun menu serta informasi produk, tautan untuk berpindah halaman, formulir untuk membentuk tampilan Login, dan elemen semantik untuk membagi bagian halaman agar lebih terstruktur. Tampilan dan interaksi lanjutan dapat dikembangkan menggunakan CSS dan JavaScript pada tahap berikutnya.
